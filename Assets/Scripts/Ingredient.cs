@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Ingredient : MonoBehaviour {
+[System.Serializable]
+public class Ingredient {
 
-    // Use this for initialization
-    void Start () {
+    public enum EnglishName {
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        Cheese
+
+    }
+
+    public EnglishName name;
+
+    public Object prefab;
+
+    [HideInInspector] public string translatedName;
+
+
+
 }

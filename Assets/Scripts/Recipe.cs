@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class Recipe : MonoBehaviour {
+[System.Serializable]
+public class Recipe {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public string name;
+    public Object prefab;
+    public Ingredient.EnglishName[] coreIngredients;
+    public Ingredient.EnglishName[] additionalIngredients;
+
 }
