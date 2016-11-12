@@ -7,7 +7,21 @@ public class Recipe {
 
     public string name;
     public Object prefab;
-    public Ingredient.EnglishName[] coreIngredients;
-    public Ingredient.EnglishName[] additionalIngredients;
+    public List<Ingredient.EnglishName> coreIngredients;
+
+    public bool ContainsIngredient(Ingredient.EnglishName ingredientToCheck) {
+
+        foreach(Ingredient.EnglishName ingredient in coreIngredients) {
+
+            if(ingredientToCheck == ingredient) {
+
+                return true;
+
+            }
+        }
+
+        return false;
+
+    }
 
 }

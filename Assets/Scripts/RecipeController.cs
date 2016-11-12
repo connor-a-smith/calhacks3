@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RecipeController : MonoBehaviour {
 
-    public RecipeController instance;
+    public static RecipeController instance;
 
-    public Ingredient[] allIngredients;
+    public List<Ingredient> allIngredients;
 
-    public Recipe[] recipes;
+    public List<Recipe> recipes;
 
     public void Awake() {
 
@@ -49,7 +50,4 @@ public class RecipeController : MonoBehaviour {
         return null;
 
     }
-
-
-
 }
