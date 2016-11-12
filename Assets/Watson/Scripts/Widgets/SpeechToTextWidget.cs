@@ -202,7 +202,17 @@ namespace IBM.Watson.DeveloperCloud.Widgets
           foreach (var alt in res.alternatives)
           {
             string text = alt.transcript;
-
+           // print("Alt: " + text);
+            string[] textsplit = text.Split(' ');
+            for (int i = 0; i < textsplit.Length; i++)
+            {
+                int recognizedNumber = DetectNumber(textsplit[i]);
+                if (recognizedNumber != 0)
+                {
+                    print(recognizedNumber);
+                    return;
+                }
+            }
             if (m_Transcript != null)
               m_Transcript.text += string.Format("{0} ({1}, {2:0.00})\n",
                   text, res.final ? "Final" : "Interim", alt.confidence);
@@ -211,5 +221,20 @@ namespace IBM.Watson.DeveloperCloud.Widgets
       }
     }
     #endregion
+
+    public int DetectNumber(string recognized) {
+        
+        if(recognized.Contains("uno")){return 1;}
+        else if (recognized.Contains("dos")) { print(recognized); return 2; }
+        else if(recognized.Contains("tres")){return 3;}
+        else if(recognized.Contains("cuatro")){return 4;}
+        else if(recognized.Contains("cinco")){return 5;}
+        else if(recognized.Contains("seis")){return 6;}
+        else if(recognized.Contains("siete")){return 7;}
+        else if(recognized.Contains("ocho")){return 8;}
+        else if(recognized.Contains("nueve")){return 9;}
+        else if(recognized.Contains("diez")){return 10;}
+        else{return 0;}
+    }
   }
 }
