@@ -11,6 +11,8 @@ public class Order : MonoBehaviour {
     private List<Ingredient.EnglishName> addedIngredients;
     private List<GameObject> addedObjects;
 
+    private List<string> additionalIngredients;
+
 	// Use this for initialization
 	void Start () {
 

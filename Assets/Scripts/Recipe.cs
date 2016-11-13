@@ -13,7 +13,7 @@ public class Recipe {
 
         foreach(Ingredient.EnglishName ingredient in coreIngredients) {
 
-            if(ingredientToCheck == ingredient) {
+            if (ingredientToCheck == ingredient) {
 
                 return true;
 
