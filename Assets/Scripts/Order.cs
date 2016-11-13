@@ -123,9 +123,14 @@ public class Order : MonoBehaviour {
 
         Debug.LogFormat("Order Complete! Creating a {0}", recipe.name);
 
-        GameObject.Instantiate(recipe.prefab, spawnLocation.position, Quaternion.identity);
+        GameObject newFood = GameObject.Instantiate(recipe.prefab, spawnLocation.position, Quaternion.identity) as GameObject;
+
+        newFood.GetComponent<FinishedFood>().foodRecipe = recipe;
+
         coreComplete = true;
         orderName = recipe.name;
+
+        
 
         DestroyActiveIngredients();
 

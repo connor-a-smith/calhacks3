@@ -29,9 +29,10 @@ public class CustomerOrder : MonoBehaviour {
         desiredDish = RecipeController.instance.recipes[Random.Range(0, RecipeController.instance.recipes.Count)];
 
         string genderText;
+        string nextNoun = desiredDish.name.Split(' ')[0];
 
         //una for female items, uno otherwise.
-        if (desiredDish.name[desiredDish.name.Length-1] == 'a')
+        if (nextNoun[nextNoun.Length-1] == 'a')
         {
             genderText = "una";
         }
@@ -67,7 +68,7 @@ public class CustomerOrder : MonoBehaviour {
 
     }
 
-    void OnColliderEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
         FinishedFood food = other.gameObject.GetComponent<FinishedFood>();
         if (food != null)
@@ -81,13 +82,16 @@ public class CustomerOrder : MonoBehaviour {
         int score = 0;
         string result;
 
+        
+
+
         StartCoroutine(StartOrderAfterInputSeconds(5f));
                 
         //If the entire food is wrong, then earn 0 points.
         if (food.foodRecipe.name != desiredDish.name)
         {
             tvText.text = "Wrong order!";
-
+            GameObject.Destroy(food.gameObject);
 
             return 0; 
         }
@@ -96,6 +100,8 @@ public class CustomerOrder : MonoBehaviour {
         else
         {
             tvText.text = "Good Job!";
+            GameObject.Destroy(food.gameObject);
+
             return 10;
             
         }
