@@ -54,14 +54,15 @@ public class Order : MonoBehaviour {
 
             if(recipesRemaining.Count <= 0) {
 
-                // TRASH
+                GameObject.Instantiate(RecipeController.instance.trashPrefab);
+                DestroyActiveIngredients();
+
                 recipesRemaining.Clear();
                 recipesRemaining = new List<Recipe>(RecipeController.instance.recipes);
 
                 Debug.LogFormat("No recipes remaining, producing trash.");
 
                 return;
-
             }
 
             addedIngredients.Add(ingredient);
@@ -118,11 +119,18 @@ public class Order : MonoBehaviour {
         coreComplete = true;
         orderName = recipe.name;
 
-        foreach (GameObject ingredient in addedObjects) {
+        DestroyActiveIngredients();
+
+    }
+
+    public void DestroyActiveIngredients() {
+
+        foreach(GameObject ingredient in addedObjects) {
 
             GameObject.Destroy(ingredient);
 
         }
+
 
     }
 }

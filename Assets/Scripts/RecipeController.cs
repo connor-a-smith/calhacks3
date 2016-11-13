@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class RecipeController : MonoBehaviour {
 
+    public Object trashPrefab;
+
     public static RecipeController instance;
 
     public List<Ingredient> allIngredients;
