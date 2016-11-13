@@ -98,6 +98,10 @@ MonoBehaviour:
     isAdditionalIngredient: 0
     prefab: {fileID: 0}
     translatedName: 
+  - name: 8
+    isAdditionalIngredient: 0
+    prefab: {fileID: 0}
+    translatedName: 
   recipes:
   - name: Taco con Carne
     prefab: {fileID: 0}
