@@ -13,7 +13,7 @@ public class RecipeController : MonoBehaviour {
 
     public List<Recipe> recipes;
 
-
+    [HideInInspector] public List<Ingredient> additionalIngredients;
 
     public void Awake() {
 
@@ -37,8 +37,14 @@ public class RecipeController : MonoBehaviour {
             string translatedName = ingredient.name.ToString();
             ingredient.translateToSpanish();
 
-
+            if (ingredient.isAdditionalIngredient)
+            {
+                additionalIngredients.Add(ingredient);
+            }
         }
+
+
+
     }
 
 

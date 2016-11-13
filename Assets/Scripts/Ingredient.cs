@@ -24,7 +24,6 @@ public class Ingredient {
     private LanguageTranslation m_Translate = new LanguageTranslation();
 
     public void translateToSpanish() {
-        Debug.Log(name.ToString());
         m_Translate.GetTranslation(name.ToString(), "en", "es", OnGetTranslation);
     }
 
@@ -32,8 +31,6 @@ public class Ingredient {
     {
         if (translation != null && translation.translations.Length > 0)
             translatedName = translation.translations[0].translation;
-        Debug.Log(translatedName);
-
     }
 
 }
