@@ -25,7 +25,13 @@ public class GameIngredient : MonoBehaviour {
         GameObject tooltipObject = GameObject.Instantiate(RecipeController.instance.tooltipPrefab) as GameObject;
 
         tooltipObject.transform.parent = this.gameObject.transform;
-        tooltipObject.transform.localPosition = Vector3.up;
+        tooltipObject.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
+
+        tooltipObject.transform.localPosition = (Vector3.up / tooltipObject.transform.localScale.y);
+
+        Debug.LogWarning("Local position is " + tooltipObject.transform.localPosition);
+        
+
 
         tooltip = tooltipObject.GetComponent<VRTK.VRTK_ObjectTooltip>();
         
