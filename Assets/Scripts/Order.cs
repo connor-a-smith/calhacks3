@@ -130,7 +130,5 @@ public class Order : MonoBehaviour {
             GameObject.Destroy(ingredient);
 
         }
-
-
     }
 }
