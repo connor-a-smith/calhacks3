@@ -9,6 +9,8 @@ public class RecipeController : MonoBehaviour {
 
     public string language;
 
+    public Object tooltipPrefab;
+
     [HideInInspector] public string andString;
     [HideInInspector] public string withString;
 
