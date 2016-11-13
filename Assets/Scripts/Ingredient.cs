@@ -11,6 +11,7 @@ public class Ingredient {
         Cheese,
         Tomato
 
+
     }
 
     public EnglishName name;
@@ -19,7 +20,7 @@ public class Ingredient {
 
     public Object prefab;
 
-    [HideInInspector] public string translatedName;
+    public string translatedName = "queso";
 
     private LanguageTranslation m_Translate = new LanguageTranslation();
 

@@ -34,8 +34,7 @@ public class RecipeController : MonoBehaviour {
 
             string translatedName = ingredient.name.ToString();
             ingredient.translateToSpanish();
-        //    print(ingredient.translatedName);
-           // ingredient.translatedName = translatedName;
+
 
         }
     }
