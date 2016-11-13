@@ -229,6 +229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c344c01cfe78ca6438c55d16a92109de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  language: 
+  andString: 
+  withString: 
+  trashPrefab: {fileID: 0}
   allIngredients:
   - name: 0
     isAdditionalIngredient: 0
