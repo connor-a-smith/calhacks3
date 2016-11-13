@@ -56,7 +56,8 @@ MonoBehaviour:
     type: 2}
   andString: 
   withString: 
-  trashPrefab: {fileID: 0}
+  trashPrefab: {fileID: 1000013783635642, guid: 72bca2dce224a414889444453b90d22f,
+    type: 2}
   allIngredients:
   - name: 0
     isAdditionalIngredient: 0
@@ -104,19 +105,19 @@ MonoBehaviour:
     translatedName: 
   recipes:
   - name: Taco con Carne
-    prefab: {fileID: 0}
-    coreIngredients: 00000000020000000a0000000600000005000000
+    prefab: {fileID: 1000011992029506, guid: 062eedb38eeeba641a4963e525d6a265, type: 2}
+    coreIngredients: 00000000020000000600000005000000
   - name: Taco con Pollo
-    prefab: {fileID: 0}
-    coreIngredients: 00000000030000000a0000000600000005000000
+    prefab: {fileID: 1000011992029506, guid: 062eedb38eeeba641a4963e525d6a265, type: 2}
+    coreIngredients: 00000000030000000600000005000000
   - name: Taco con Carnitas
-    prefab: {fileID: 0}
-    coreIngredients: 00000000040000000a0000000600000005000000
+    prefab: {fileID: 1000011992029506, guid: 062eedb38eeeba641a4963e525d6a265, type: 2}
+    coreIngredients: 00000000040000000600000005000000
   - name: Tostadas con Carne
-    prefab: {fileID: 0}
+    prefab: {fileID: 1000013855481668, guid: 293291090a5ba124d98973f6d27ba7b9, type: 2}
     coreIngredients: 020000000000000007000000090000000600000008000000
   - name: Tostadas con Pollo
-    prefab: {fileID: 0}
+    prefab: {fileID: 1000013855481668, guid: 293291090a5ba124d98973f6d27ba7b9, type: 2}
     coreIngredients: 0300000000000000070000000900000006000000080000000a000000
   - name: Fun Time
     prefab: {fileID: 1000012848199534, guid: 30344f460c7631f46a5ac60ea994802a, type: 2}
