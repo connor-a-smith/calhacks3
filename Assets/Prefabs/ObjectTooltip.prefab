@@ -120,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012549818764}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -2.811, y: 1.3635, z: 0.39499998}
+  m_LocalPosition: {x: 0.35909975, y: 0.17948353, z: 0.19608736}
   m_LocalScale: {x: 4.999999, y: 5, z: 4.999999}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: Red Cube
   fontSize: 14
-  containerSize: {x: 100, y: 30}
+  containerSize: {x: 135, y: 30}
   drawLineFrom: {fileID: 0}
   drawLineTo: {fileID: 0}
   lineWidth: 0.01
@@ -414,7 +414,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 135.2, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013673183408
 RectTransform:

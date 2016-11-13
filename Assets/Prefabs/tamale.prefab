@@ -39,6 +39,7 @@ GameObject:
   - 54: {fileID: 54000011787638472}
   - 65: {fileID: 65000010298371152}
   - 114: {fileID: 114000012007296122}
+  - 114: {fileID: 114000012192214676}
   m_Layer: 0
   m_Name: tamale
   m_TagString: Untagged
@@ -66,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013936180956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.103, y: 1.094, z: -0.856}
+  m_LocalPosition: {x: 0.063, y: 0.986, z: -0.896}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -180,3 +181,21 @@ MonoBehaviour:
   allowedUseControllers: 0
   hideControllerOnUse: 0
   usingState: 0
+--- !u!114 &114000012192214676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013936180956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab74771435669fb4087d3e888ab6e722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  additionalIngredients: []
+  foodRecipe:
+    name: Tamale
+    prefab: {fileID: 0}
+    coreIngredients: 
+  tooltip: {fileID: 0}
+  createdAtCompileTime: 1

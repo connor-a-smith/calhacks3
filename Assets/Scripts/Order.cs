@@ -126,6 +126,7 @@ public class Order : MonoBehaviour {
         GameObject newFood = GameObject.Instantiate(recipe.prefab, spawnLocation.position, Quaternion.identity) as GameObject;
 
         newFood.GetComponent<FinishedFood>().foodRecipe = recipe;
+        newFood.GetComponent<FinishedFood>().init();
 
         coreComplete = true;
         orderName = recipe.name;

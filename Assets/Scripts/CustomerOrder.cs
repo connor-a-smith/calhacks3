@@ -82,15 +82,12 @@ public class CustomerOrder : MonoBehaviour {
         int score = 0;
         string result;
 
-        
-
-
         StartCoroutine(StartOrderAfterInputSeconds(5f));
                 
         //If the entire food is wrong, then earn 0 points.
         if (food.foodRecipe.name != desiredDish.name)
         {
-            tvText.text = "Wrong order!";
+            tvText.text = "¡Esta no es mi orden!";
             GameObject.Destroy(food.gameObject);
 
             return 0; 
@@ -99,7 +96,7 @@ public class CustomerOrder : MonoBehaviour {
 
         else
         {
-            tvText.text = "Good Job!";
+            tvText.text = "¡Gracias!";
             GameObject.Destroy(food.gameObject);
 
             return 10;
