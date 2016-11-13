@@ -15,8 +15,11 @@ public class Order : MonoBehaviour {
 
     private List<Ingredient> additionalIngredients;
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField] private AudioClip addingIngredientClip;
+    [SerializeField] private AudioClip createFoodClip;
+
+    // Use this for initialization
+    void Start () {
 
         recipesRemaining = new List<Recipe>(RecipeController.instance.recipes);
         addedIngredients = new List<Ingredient.EnglishName>();
@@ -40,6 +43,9 @@ public class Order : MonoBehaviour {
     public void AddIngredient(Ingredient.EnglishName ingredient) {
 
         if(!coreComplete) {
+
+            GetComponent<AudioSource>().clip = addingIngredientClip;
+            GetComponent<AudioSource>().Play();
 
             for (int i = 0; i < recipesRemaining.Count; i++) {
 
@@ -120,6 +126,9 @@ public class Order : MonoBehaviour {
     }
 
     public void CreateOrder(Recipe recipe) {
+
+        GetComponent<AudioSource>().clip = createFoodClip;
+        GetComponent<AudioSource>().Play();
 
         Debug.LogFormat("Order Complete! Creating a {0}", recipe.name);
 
