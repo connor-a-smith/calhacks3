@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Order : MonoBehaviour {
 
+    public Transform spawnLocation;
+
     private List<Recipe> recipesRemaining;
     private bool coreComplete = false;
     private string orderName = "";
@@ -37,19 +39,21 @@ public class Order : MonoBehaviour {
 
         if(!coreComplete) {
 
-            foreach(Recipe recipe in recipesRemaining) {
+            for (int i = 0; i < recipesRemaining.Count; i++) {
+
+                Recipe recipe = recipesRemaining[i];
 
                 if(!recipe.ContainsIngredient(ingredient)) {
 
                     Debug.LogFormat("Recipe {0} did not contain {1}!", recipe.name, ingredient.ToString());
                     recipesRemaining.Remove(recipe);
+                    i--;
 
                 }
                 else {
 
                     Debug.LogFormat("Recipe {0} contained ingredient {1}!", recipe.name, ingredient.ToString());
-
-                }
+                }               
             }
 
             if(recipesRemaining.Count <= 0) {
@@ -65,7 +69,9 @@ public class Order : MonoBehaviour {
                 return;
             }
 
-            addedIngredients.Add(ingredient);
+            if(!addedIngredients.Contains(ingredient)) {
+                addedIngredients.Add(ingredient);
+            }
 
             CheckRemainingRecipes();
 
@@ -115,7 +121,7 @@ public class Order : MonoBehaviour {
 
         Debug.LogFormat("Order Complete! Creating a {0}", recipe.name);
 
-        GameObject.Instantiate(recipe.prefab);
+        GameObject.Instantiate(recipe.prefab, spawnLocation.position, Quaternion.identity);
         coreComplete = true;
         orderName = recipe.name;
 
@@ -130,5 +136,11 @@ public class Order : MonoBehaviour {
             GameObject.Destroy(ingredient);
 
         }
+
+        addedIngredients.Clear();
+
+        coreComplete = false;
+
+        orderName = "";
     }
 }
