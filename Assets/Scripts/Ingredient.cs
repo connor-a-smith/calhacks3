@@ -4,10 +4,11 @@ using System.Collections;
 [System.Serializable]
 public class Ingredient {
 
-
     public enum EnglishName {
 
-        Cheese
+        Cheese,
+        Tomato,
+        Lettuce
 
     }
 
