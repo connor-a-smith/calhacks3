@@ -16,6 +16,7 @@ public class RecipeController : MonoBehaviour {
 
     public Object trashPrefab;
 
+    [HideInInspector] public List<Ingredient> additionalIngredients;
     public List<Ingredient> allIngredients;
 
     public List<Recipe> recipes;
@@ -36,20 +37,24 @@ public class RecipeController : MonoBehaviour {
     }
 
     public void Start() {
-
-
         foreach(Ingredient ingredient in allIngredients) {
 
             string translatedName = ingredient.name.ToString();
-
             TranslationController.Translate(translatedName, language, ingredient.OnGetTranslation);
-        }
 
+            if (ingredient.isAdditionalIngredient)
+            {
+                additionalIngredients.Add(ingredient);
+
+
+            }
+        }
 
         TranslationController.Translate("and", language, SetAndString);
         TranslationController.Translate("with", language, SetWithString);
 
         andString = "y";
+        withString = "con";
 
     }
 

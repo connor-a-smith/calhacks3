@@ -37,6 +37,5 @@ public class Ingredient {
             translatedName = translation.translations[0].translation;
         }
         Debug.Log(translatedName);
-
     }
 }

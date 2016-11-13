@@ -13,6 +13,8 @@ public class Order : MonoBehaviour {
     private List<Ingredient.EnglishName> addedIngredients;
     private List<GameObject> addedObjects;
 
+    private List<Ingredient> additionalIngredients;
+
 	// Use this for initialization
 	void Start () {
 
@@ -83,7 +85,7 @@ public class Order : MonoBehaviour {
 
                 if(additionalIngredient.name == ingredient && additionalIngredient.isAdditionalIngredient) {
 
-                    // This is an additional ingredient
+                    additionalIngredients.Add(additionalIngredient);
 
                 }
             }
@@ -142,5 +144,41 @@ public class Order : MonoBehaviour {
         coreComplete = false;
 
         orderName = "";
+    }
+
+    public override string ToString() {
+
+        if(coreComplete) {
+
+            string orderString = orderName;
+
+            for(int i = 0; i < additionalIngredients.Count; i++) {
+
+                if(i == additionalIngredients.Count - 1) {
+
+                    orderString += RecipeController.instance.andString + " ";
+                    orderString += additionalIngredients[i].translatedName + ".";
+
+                }
+
+                else if(i == 0) {
+
+                    orderString += " " + RecipeController.instance.withString + " ";
+                    orderString += additionalIngredients[i].translatedName + ", ";
+                }
+
+                else {
+
+                    orderString += additionalIngredients[i].translatedName + ", ";
+
+                }
+            }
+
+            return orderString;
+
+        }
+
+        return "";
+     
     }
 }
