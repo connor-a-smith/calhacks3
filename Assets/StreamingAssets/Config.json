@@ -10,6 +10,14 @@
             "m_Password": "fKAoWlMJqpZZ",
             "m_Apikey": null,
             "m_Note": null
+        },
+        {
+            "m_ServiceID": "LanguageTranslationV1",
+            "m_URL": "https://gateway.watsonplatform.net/language-translation/api",
+            "m_User": "2b7ed054-c716-4de3-be98-04ada4677cc0",
+            "m_Password": "jl20pyV16IPl",
+            "m_Apikey": null,
+            "m_Note": null
         }
     ],
     "m_Variables": []
