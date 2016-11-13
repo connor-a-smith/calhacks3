@@ -5,12 +5,11 @@ using IBM.Watson.DeveloperCloud.Services.LanguageTranslation.v1;
 [System.Serializable]
 public class Ingredient {
 
-
     public enum EnglishName {
 
         Cheese,
-        Tomato
-
+        Tomato,
+        Lettuce
 
     }
 

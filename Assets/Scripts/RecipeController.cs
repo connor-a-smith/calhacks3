@@ -5,6 +5,8 @@ using IBM.Watson.DeveloperCloud.Services.LanguageTranslation.v1;
 
 public class RecipeController : MonoBehaviour {
 
+    public Object trashPrefab;
+
     public static RecipeController instance;
 
     public List<Ingredient> allIngredients;
