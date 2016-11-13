@@ -37,7 +37,6 @@ public class GameIngredient : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other) {
 
-        Debug.LogWarning("Entering?");
 
         SteamVR_TrackedObject controller = other.GetComponent<SteamVR_TrackedObject>();
 
