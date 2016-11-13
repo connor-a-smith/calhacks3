@@ -7,7 +7,7 @@ public class Ingredient {
 
     public enum EnglishName {
 
-        Cheese
+        Null, Cheese
 
     }
 
@@ -17,7 +17,7 @@ public class Ingredient {
 
     public Object prefab;
 
-    [HideInInspector] public string translatedName;
+    public string translatedName = "queso";
 
 
 
