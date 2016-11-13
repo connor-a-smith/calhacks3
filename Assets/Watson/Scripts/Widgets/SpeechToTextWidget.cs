@@ -202,28 +202,49 @@ namespace IBM.Watson.DeveloperCloud.Widgets
                 {
                     if (res.final)
                     {
-                       // List<Ingredient> ingredients = new List<Ingredient>();
-
+                        List<Ingredient.EnglishName> ingredients = new List<Ingredient.EnglishName>();
+                        Recipe desiredRecipe = null;
+                                              
                         foreach (var alt in res.alternatives)
                         {
                             string text = alt.transcript;
-                            // print("Alt: " + text);
-                            string[] textsplit = text.Split(' ');
-                            for (int i = 0; i < textsplit.Length; i++)
+                            print(text);
+
+                            Recipe potentialRecipe = DetectRecipe(text);
+
+                            if (potentialRecipe != null)
                             {
-                                int recognizedNumber = DetectNumber(textsplit[i]);
-                                if (recognizedNumber != 0)
+                                desiredRecipe = potentialRecipe;
+                            }
+
+                            List<Ingredient.EnglishName> potentialIngredients = DetectIngredients(text);
+
+
+                            foreach (Ingredient.EnglishName ingredient in potentialIngredients)
+                            {
+                                if (!ingredients.Contains(ingredient))
                                 {
-                                    print(recognizedNumber);
-                                    return;
+                                    ingredients.Add(ingredient);
                                 }
                             }
-                            if (m_Transcript != null)
-                                m_Transcript.text += string.Format("{0} ({1}, {2:0.00})\n",
-                                    text, res.final ? "Final" : "Interim", alt.confidence);
+
+
+                        }
+
+                        if (desiredRecipe != null)
+                        {
+                            print(desiredRecipe.name);
+                            print(ingredients.Count);   
+                        }
+
+                        else
+                        {
+                            print("No recipe");
                         }
                     }
                 }
+
+
             }
         }
         #endregion
@@ -244,12 +265,36 @@ namespace IBM.Watson.DeveloperCloud.Widgets
             else { return 0; }
         }
 
-        public Ingredient.IngredientName DetectIngredient(string recognized)
+        public List<Ingredient.EnglishName> DetectIngredients(string sentence)
         {
-            if (recognized.Contains("queso"))
+            List<Ingredient.EnglishName> returnList = new List<Ingredient.EnglishName>();
 
+            foreach (Ingredient ingredient in RecipeController.instance.allIngredients)
+            {
+                print(ingredient.translatedName.ToString());
+                if (sentence.ToLower().Contains(ingredient.translatedName.ToString().ToLower()))
+                {
+                    returnList.Add(ingredient.name);
+                }
+            }
+
+            return returnList;
         }
 
-        
+
+        public Recipe DetectRecipe(string sentence)
+        {
+            foreach (Recipe recipe in RecipeController.instance.recipes)
+            {
+                if (sentence.ToLower().Contains(recipe.name.ToLower()))
+                {
+                    return recipe;
+                }
+            }
+
+            return null;
+        }
+
+
     }
 }
