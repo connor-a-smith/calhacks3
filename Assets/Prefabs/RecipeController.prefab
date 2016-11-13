@@ -114,7 +114,10 @@ MonoBehaviour:
     coreIngredients: 00000000040000000a0000000600000005000000
   - name: Tostadas con Carne
     prefab: {fileID: 0}
-    coreIngredients: 0200000000000000070000000900000006000000080000000a000000
+    coreIngredients: 020000000000000007000000090000000600000008000000
   - name: Tostadas con Pollo
     prefab: {fileID: 0}
     coreIngredients: 0300000000000000070000000900000006000000080000000a000000
+  - name: Fun Time
+    prefab: {fileID: 1000012848199534, guid: 30344f460c7631f46a5ac60ea994802a, type: 2}
+    coreIngredients: 0800000006000000
