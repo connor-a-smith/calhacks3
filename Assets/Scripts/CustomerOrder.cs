@@ -6,9 +6,11 @@ public class CustomerOrder : MonoBehaviour {
 
     private Recipe desiredDish;
     private List<Ingredient.EnglishName> desiredIngredients;
+    [SerializeField] private string successString = "Gracias!";
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         //Get a random dish and ingredients
         SetDishAndIngredients();
 	}
@@ -18,6 +20,9 @@ public class CustomerOrder : MonoBehaviour {
 	
 	}
 
+    /// <summary>
+    /// Sets the dish and ingredients this person ordered.
+    /// </summary>
     private void SetDishAndIngredients()
     {
         desiredDish = RecipeController.instance.recipes[Random.Range(0, RecipeController.instance.recipes.Count)];
@@ -44,10 +49,62 @@ public class CustomerOrder : MonoBehaviour {
 
     void OnColliderEnter(Collision other)
     {
-        if (other.gameObject.GetComponent<FinishedFood>())
+        FinishedFood food = other.gameObject.GetComponent<FinishedFood>();
+        if (food != null)
         {
-
+            receiveOrder(food);
         }
     }
 
+    private int receiveOrder(FinishedFood food)
+    {
+        int score = 0;
+        string result;
+
+                
+        //If the entire food is wrong, then earn 0 points.
+        if (food.foodRecipe.name != desiredDish.name)
+        {
+            result = "Wrong order!";
+
+
+            return 0; 
+        }
+
+
+        else
+        {
+            result = "Good Job!";
+            return 10;
+            
+        }
+
+
+        /*
+        //Loop through the finished food's additional ingredients, matches get bonus! If either have extras, then minus points :<
+
+        foreach (Ingredient ingredient in food.additionalIngredients)
+        {
+            if (desiredIngredients.Contains(ingredient.name))
+            {
+                score += 10;
+                desiredIngredients.Remove(ingredient.name);
+            }
+
+            else
+            {
+                score -= 10;
+
+
+            }
+        }
+
+        //If there are ingredients missed.
+        if (desiredIngredients.Count != 0)
+        {
+            
+
+        }*/
+        
+    }
 }

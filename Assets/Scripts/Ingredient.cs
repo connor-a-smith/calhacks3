@@ -27,7 +27,7 @@ public class Ingredient {
 
     public Object prefab;
 
-    public string translatedName = "queso";
+    public string translatedName;
 
     private LanguageTranslation m_Translate = new LanguageTranslation();
 
