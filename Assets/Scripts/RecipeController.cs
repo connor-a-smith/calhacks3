@@ -52,6 +52,7 @@ public class RecipeController : MonoBehaviour {
         TranslationController.Translate("with", language, SetWithString);
 
         andString = "y";
+        withString = "con";
 
     }
 
