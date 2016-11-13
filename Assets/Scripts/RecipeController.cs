@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using IBM.Watson.DeveloperCloud.Services.LanguageTranslation.v1;
 
 public class RecipeController : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class RecipeController : MonoBehaviour {
     public List<Ingredient> allIngredients;
 
     public List<Recipe> recipes;
+
+
 
     public void Awake() {
 
@@ -30,11 +33,13 @@ public class RecipeController : MonoBehaviour {
         foreach(Ingredient ingredient in allIngredients) {
 
             string translatedName = ingredient.name.ToString();
-            // pass through translator
-            ingredient.translatedName = translatedName;
+            ingredient.translateToSpanish();
+        //    print(ingredient.translatedName);
+           // ingredient.translatedName = translatedName;
 
         }
     }
+
 
     public Object GetIngredientPrefab(Ingredient.EnglishName ingredientToGet) {
 
